@@ -88,7 +88,7 @@
     "vm.max_map_count" = 2147483642;
   };
 
-  networking.hostName = "Umbriel"; # Define your hostname.
+  networking.hostName = "JIKOUJI"; # Define your hostname.
 
   powerManagement.cpuFreqGovernor = "performance";
 
@@ -158,14 +158,27 @@
     options = "--delete-older-than 30d";
   };
 
-  services.greetd = {
+  #services.xserver.displayManager.lightdm.enable = true;
+  #services.xserver.displayManager.lightdm.greeters.slick.enable = true;
+
+  services.displayManager.sddm = {
     enable = true;
-    restart = true;
-    settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --unsupported-gpu'";
-      user = "greeter";
-    };
+    wayland.enable = true;
+    theme = "sddm-astronaut-theme";
+    package = pkgs.kdePackages.sddm;
+    extraPackages = with pkgs; [sddm-astronaut];
   };
+
+  programs.hyprland.enable = true;
+
+  #services.greetd = {
+  #  enable = true;
+  #  restart = true;
+  #  settings.default_session = {
+  #    command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+  #    user = "greeter";
+  #  };
+  #};
 
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
@@ -202,7 +215,6 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
-    variant = "colemak";
   };
 
   # Enable CUPS to print documents.
@@ -252,6 +264,7 @@
     cudaPackages.cudatoolkit	
     neovim
     cbfstool
+    sddm-astronaut
     git
     keepassxc
     pulseaudio
@@ -269,8 +282,11 @@
   powerManagement.powertop.enable = true;
   services.thermald.enable = true;
 
+
   environment.sessionVariables = {
-    HYPRLAND_INSTANCE_SIGNATURE = "balls";
+        HYPRLAND_INSTANCE_SIGNATURE = "balls";
+        NIXPKGS_ALLOW_UNFREE = 1;
+        NIXOS_OZONE_WL = 1;
   };
 
 

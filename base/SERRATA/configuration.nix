@@ -88,7 +88,7 @@
     "vm.max_map_count" = 2147483642;
   };
 
-  networking.hostName = "Jikouji"; # Define your hostname.
+  networking.hostName = "SERRATA"; # Define your hostname.
 
   powerManagement.cpuFreqGovernor = "performance";
 
@@ -269,8 +269,11 @@
   powerManagement.powertop.enable = true;
   services.thermald.enable = true;
 
+
   environment.sessionVariables = {
-    HYPRLAND_INSTANCE_SIGNATURE = "balls";
+        HYPRLAND_INSTANCE_SIGNATURE = "balls";
+        NIXPKGS_ALLOW_UNFREE = 1;
+        NIXOS_OZONE_WL = 1;
   };
 
 

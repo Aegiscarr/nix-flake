@@ -14,10 +14,10 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-xr, home-manager, ...}:{
-    nixosConfigurations."Jikouji" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."JIKOUJI" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./base/Jikouji
+        ./base/JIKOUJI
         home-manager.nixosModules.home-manager {
           #imports = [ inputs.nix-index-database.hmModules.nix-index ];
           home-manager.backupFileExtension = "hm-backup";
@@ -36,10 +36,10 @@
         }
       ];
     };
-    nixosConfigurations."Serrata" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."SERRATA" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./base/Serrata
+        ./base/SERRATA
         home-manager.nixosModules.home-manager {
           home-manager.backupFileExtension = "hm-backup";
           home-manager.extraSpecialArgs = {

@@ -8,6 +8,7 @@
     ./theming.nix
     ./nixvim
     ./sway.nix
+    ./hypr/hyprland.nix
     ./packages.nix #general user packages not managed by home-manager but i want to install via hm anyways
   ];
   home = rec {
