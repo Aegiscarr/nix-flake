@@ -34,7 +34,7 @@
     strawberry 
     openscad 
     openutau 
-    wlr-randr 
+    #wlr-randr 
     grim 
     slurp 
     grimblast 

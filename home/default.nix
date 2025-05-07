@@ -7,7 +7,6 @@
     #aux files to make finding specific things easier
     ./theming.nix
     ./nixvim
-    ./sway.nix
     ./hypr/hyprland.nix
     ./packages.nix #general user packages not managed by home-manager but i want to install via hm anyways
   ];
@@ -85,17 +84,17 @@
     }
   '';
 
-  xdg.portal = {
-    enable = (vars.class != "handheld");
-    extraPortals = (if vars.class != "handheld" then [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ] else []);
-    configPackages = (if vars.class != "handheld" then [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ] else []);
-    config.common.default = (if vars.class != "handheld" then "*" else "");
-  };
+  #xdg.portal = {
+  #  enable = (vars.class != "handheld");
+  #  extraPortals = (if vars.class != "handheld" then [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ] else []);
+  #  configPackages = (if vars.class != "handheld" then [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ] else []);
+  #  config.common.default = (if vars.class != "handheld" then "*" else "");
+  #};
 
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
+      #wlrobs
       obs-backgroundremoval
       obs-pipewire-audio-capture
     ];

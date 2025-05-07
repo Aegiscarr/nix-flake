@@ -60,18 +60,18 @@
     useRoutingFeatures = "both";
   };
 
-  xdg.portal.config.common.default = "*";
-  xdg.portal.wlr = {
-    enable = true;
-    settings = {
-      screencast = {
-        chooser_type = "simple";
-        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-        exec_before = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --dnd-on --skip-wait";
-        exec_after = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --dnd-off --skip-wait";
-      };
-    };
-  };
+  #xdg.portal.config.common.default = "*";
+  #xdg.portal.wlr = {
+  #  enable = true;
+  #  settings = {
+  #    screencast = {
+  #      chooser_type = "simple";
+  #      chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+  #      exec_before = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --dnd-on --skip-wait";
+  #      exec_after = "${lib.getExe' pkgs.swaynotificationcenter "swaync-client"} --dnd-off --skip-wait";
+  #    };
+  #  };
+  #};
   
   boot.supportedFilesystems = ["exfat" "ntfs" "xfs"];
   boot.loader.systemd-boot.enable = true;
