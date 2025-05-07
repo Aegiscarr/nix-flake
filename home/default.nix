@@ -53,8 +53,8 @@
   };
   programs.git = {
     enable = true;
-    userName = "cydiralis";
-    userEmail = "cydiralis@proton.me";
+    userName = "Aegiscarr";
+    userEmail = "aegiscarr@gmail.com";
     extraConfig = {
       commit.gpgsign = true;
       gpg.format = "ssh";

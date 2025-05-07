@@ -1,6 +1,12 @@
-{
-  programs.kitty.enable = true;
-  wayland.windowManager.hyprland.enable = true;
+{inputs, pkgs, ...}: {
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+    ];
+  };
   wayland.windowManager.hyprland.settings = {
 
   exec-once = [

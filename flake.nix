@@ -11,11 +11,20 @@
     nixvim.url = "github:nix-community/nixvim";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    
+    };
+    github-jeslie0-fonts.url = "github:jeslie0/fonts";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-xr, home-manager, ...}:{
+  outputs = inputs@{ self, nixpkgs, nixpkgs-xr, home-manager, hyprland, ...}:{
     nixosConfigurations."JIKOUJI" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs };
       modules = [
         ./base/JIKOUJI
         home-manager.nixosModules.home-manager {

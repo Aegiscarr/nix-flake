@@ -169,8 +169,6 @@
     extraPackages = with pkgs; [sddm-astronaut];
   };
 
-  programs.hyprland.enable = true;
-
   #services.greetd = {
   #  enable = true;
   #  restart = true;
@@ -284,7 +282,6 @@
 
 
   environment.sessionVariables = {
-        HYPRLAND_INSTANCE_SIGNATURE = "balls";
         NIXPKGS_ALLOW_UNFREE = 1;
         NIXOS_OZONE_WL = 1;
   };
